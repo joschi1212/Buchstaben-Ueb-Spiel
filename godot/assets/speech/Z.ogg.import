@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Z.ogg-e842361c92d3edcb11affb86f206f0b9.oggstr"
+
+[deps]
+
+source_file="res://assets/speech/Z.ogg"
+dest_files=[ "res://.import/Z.ogg-e842361c92d3edcb11affb86f206f0b9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

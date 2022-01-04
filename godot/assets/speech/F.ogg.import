@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/F.ogg-9746d40d9e9b2157e42179bbb679868d.oggstr"
+
+[deps]
+
+source_file="res://assets/speech/F.ogg"
+dest_files=[ "res://.import/F.ogg-9746d40d9e9b2157e42179bbb679868d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

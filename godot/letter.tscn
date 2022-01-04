@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://letter.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Happy School.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/Star_Middle.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="Letter" type="RigidBody2D"]
+input_pickable = true
+gravity_scale = 0.2
+contacts_reported = 100000
+contact_monitor = true
+linear_damp = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 1, -1 )
+color = Color( 0.447059, 0.12549, 0.12549, 0 )
+antialiased = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Polygon2D"]
+margin_left = 3.0
+margin_top = -5.0
+margin_right = 43.0
+margin_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 83
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 30.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 412.16
+initial_velocity_random = 1.0
+scale_amount = 0.05
+__meta__ = {
+"_edit_lock_": true
+}

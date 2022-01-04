@@ -1,9 +1,102 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://AudioPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://letters.gd" type="Script" id=3]
+[ext_resource path="res://assets/sounds/correct.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/wrong.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/laser.ogg" type="AudioStream" id=6]
+[ext_resource path="res://cannon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/images/Background.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/Stern.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/Punkte.png" type="Texture" id=12]
 
-[node name="Node2D" type="Sprite"]
-texture = ExtResource( 1 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 513.761, 10 )
+
+[node name="Main" type="Sprite"]
+position = Vector2( 540, 300 )
+texture = ExtResource( 10 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = -529.339
+margin_top = 275.199
+margin_right = -428.339
+margin_bottom = 295.199
+text = "Spawn Letters"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 11.505, 276.842 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="letters" type="Node2D" parent="."]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cannon" parent="." instance=ExtResource( 9 )]
+position = Vector2( -540, -300 )
+
+[node name="Speech" parent="." instance=ExtResource( 2 )]
+
+[node name="Sounds" parent="." instance=ExtResource( 2 )]
+volume_db = -7.354
+audio_files1 = [ ExtResource( 4 ), ExtResource( 5 ) ]
+
+[node name="Laser" parent="." instance=ExtResource( 2 )]
+audio_files1 = [ ExtResource( 6 ) ]
+
+[node name="SpritePoints" type="Sprite" parent="."]
+position = Vector2( 420.448, -248.046 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="SpritePoints"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Punkte
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stars" type="Node2D" parent="."]
+position = Vector2( 487.719, 112.68 )
+
+[node name="Sprite1" type="Sprite" parent="Stars"]
+position = Vector2( 0, -280 )
+texture = ExtResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="Stars"]
+position = Vector2( 0, -210 )
+texture = ExtResource( 11 )
+
+[node name="Sprite3" type="Sprite" parent="Stars"]
+position = Vector2( 0, -140 )
+texture = ExtResource( 11 )
+
+[node name="Sprite4" type="Sprite" parent="Stars"]
+position = Vector2( 0, -70 )
+texture = ExtResource( 11 )
+
+[node name="Sprite5" type="Sprite" parent="Stars"]
+texture = ExtResource( 11 )

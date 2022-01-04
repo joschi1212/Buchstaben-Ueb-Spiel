@@ -1,0 +1,36 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://AudioStreamPlayer2D.gd" type="Script" id=1]
+[ext_resource path="res://assets/speech/E.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/speech/G.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/speech/H.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/speech/C.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/speech/A.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/speech/D.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/speech/I.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/speech/B.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/speech/F.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/speech/J.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/speech/K.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/speech/L.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/speech/Y.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/speech/V.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/speech/X.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/speech/Z.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/speech/U.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/speech/S.ogg" type="AudioStream" id=19]
+[ext_resource path="res://assets/speech/M.ogg" type="AudioStream" id=20]
+[ext_resource path="res://assets/speech/N.ogg" type="AudioStream" id=21]
+[ext_resource path="res://assets/speech/O.ogg" type="AudioStream" id=22]
+[ext_resource path="res://assets/speech/P.ogg" type="AudioStream" id=23]
+[ext_resource path="res://assets/speech/W.ogg" type="AudioStream" id=24]
+[ext_resource path="res://assets/speech/T.ogg" type="AudioStream" id=25]
+[ext_resource path="res://assets/speech/R.ogg" type="AudioStream" id=26]
+[ext_resource path="res://assets/speech/Q.ogg" type="AudioStream" id=27]
+
+[node name="Speech" type="AudioStreamPlayer2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+audio_files1 = [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 25 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 17 ) ]
