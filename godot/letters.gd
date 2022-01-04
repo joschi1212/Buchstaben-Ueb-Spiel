@@ -6,8 +6,10 @@ var num_letters : int = 5
 var letters : Array = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
 "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var letters_copy = letters.duplicate(true)
+var points : int = 0
 
 var audio_speech : AudioStreamPlayer2D 
+var points_label : Label
 
 signal no_letters
 signal correct
@@ -15,7 +17,7 @@ signal wrong
 
 func _ready():
 	audio_speech = get_node("../Speech")
-	pass # Replace with function body.
+	points_label = get_node("../SpritePoints/Label")
 
 
 func _spawn_letters():
@@ -47,6 +49,8 @@ func _on_wrong_letter():
 
 func _on_correct_letter():
 	emit_signal("correct")
+	points += 10
+	points_label.text = str(points)
 
 func _on_letter_deleted():
 	print("Letter deleted from letters")

@@ -26,6 +26,7 @@ func _ready():
 	cannon = get_node("../../Cannon")
 	sound_player = get_node("../../Sounds")
 	laser_player = get_node("../../Laser")
+	
 	connect("correct_letter_pressed", self, "_on_correct_letter_pressed")
 	connect("wrong_letter_pressed", self, "_on_wrong_letter_pressed")
 	connect("body_entered", self, "_on_body_entered")
@@ -66,6 +67,7 @@ func _on_wrong_letter_pressed():
 		star.queue_free()
 	sound_player.play_specific(1)
 	laser_player.play_specific(0)
+	
 
 
 func _on_correct_letter_pressed():
@@ -77,6 +79,7 @@ func _on_correct_letter_pressed():
 	tween.start()
 	sound_player.play_specific(0)
 	laser_player.play_specific(0)
+
 
 
 
