@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://VideoStreamPlayer.gd" type="Script" id=1]
+[ext_resource path="res://assets/ufo_video.ogv" type="VideoStream" id=2]
+
+[node name="MyVideoPlayer" type="VideoPlayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+volume_db = -80.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+video_files1 = [ ExtResource( 2 ) ]

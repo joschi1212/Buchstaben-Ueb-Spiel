@@ -7,10 +7,12 @@ var polygon : Polygon2D
 var collision_shape : CollisionShape2D
 var correct : bool = false
 var particles : CPUParticles2D
-var stars : Node2D
+var clickable : bool = true
+
 var cannon
 var sound_player
 var laser_player
+
 
 signal letter_deleted
 signal wrong_letter_pressed
@@ -22,7 +24,6 @@ func _ready():
 	polygon = get_node("Polygon2D")
 	collision_shape = get_node("CollisionShape2D")
 	particles = get_node("CPUParticles2D")
-	stars = get_node("../../Stars")
 	cannon = get_node("../../Cannon")
 	sound_player = get_node("../../Sounds")
 	laser_player = get_node("../../Laser")
@@ -44,13 +45,14 @@ func _on_body_entered(body):
 		emit_signal("letter_deleted")
 
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			print("pressed: ", letter)
-			if(correct):
-				emit_signal("correct_letter_pressed")
-			else:
-				emit_signal("wrong_letter_pressed")
+	if(clickable):
+		if event is InputEventMouseButton:
+			if event.button_index == BUTTON_LEFT and event.pressed:
+				print("pressed: ", letter)
+				if(correct):
+					emit_signal("correct_letter_pressed")
+				else:
+					emit_signal("wrong_letter_pressed")
 
 func _init_label(letter : String):
 	label.set_text(letter)
@@ -61,13 +63,10 @@ func _on_wrong_letter_pressed():
 	add_child(tween)
 	tween.interpolate_property(get_node("Polygon2D"), "scale", Vector2(1, 1), Vector2(0.001, 0.001), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
-	# delete star
-	if(stars.get_child_count() > 0):
-		var star : Sprite = stars.get_children().pop_front()
-		star.queue_free()
+
 	sound_player.play_specific(1)
 	laser_player.play_specific(0)
-	
+	clickable = false
 
 
 func _on_correct_letter_pressed():
@@ -79,6 +78,7 @@ func _on_correct_letter_pressed():
 	tween.start()
 	sound_player.play_specific(0)
 	laser_player.play_specific(0)
+	clickable = false
 
 
 

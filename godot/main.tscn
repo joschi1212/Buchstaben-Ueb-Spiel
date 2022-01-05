@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://AudioPlayer.tscn" type="PackedScene" id=2]
@@ -7,10 +7,15 @@
 [ext_resource path="res://assets/sounds/wrong.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/sounds/laser.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/fonts/ChildrenSans.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://VideoPlayer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://cannon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/images/Background.png" type="Texture" id=10]
 [ext_resource path="res://assets/images/Stern.png" type="Texture" id=11]
 [ext_resource path="res://assets/images/Punkte.png" type="Texture" id=12]
+[ext_resource path="res://assets/video/neutral.ogv" type="VideoStream" id=13]
+[ext_resource path="res://assets/video/cheer.ogv" type="VideoStream" id=14]
+[ext_resource path="res://assets/video/wrong.ogv" type="VideoStream" id=15]
+[ext_resource path="res://assets/music/Michael Cherdchupan - Oh My Gore! - Original Soundtrack - 03 Level 01 - 1000 Years of Powernapping.ogg" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 513.761, 10 )
@@ -26,9 +31,6 @@ font_data = ExtResource( 7 )
 position = Vector2( 540, 300 )
 texture = ExtResource( 10 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -37,6 +39,7 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
+pause_mode = 2
 margin_left = -529.339
 margin_top = 275.199
 margin_right = -428.339
@@ -65,26 +68,35 @@ __meta__ = {
 position = Vector2( -540, -300 )
 
 [node name="Speech" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
 
 [node name="Sounds" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
 volume_db = -7.354
 audio_files1 = [ ExtResource( 4 ), ExtResource( 5 ) ]
 
 [node name="Laser" parent="." instance=ExtResource( 2 )]
 audio_files1 = [ ExtResource( 6 ) ]
 
+[node name="Music" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+volume_db = -8.0
+audio_files1 = [ ExtResource( 16 ) ]
+
 [node name="SpritePoints" type="Sprite" parent="."]
-position = Vector2( 420.448, -248.046 )
+pause_mode = 2
+position = Vector2( 420, -250 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="SpritePoints"]
-margin_left = -147.813
-margin_top = -34.2793
-margin_right = 10.187
-margin_bottom = 42.7207
+margin_left = -19.813
+margin_top = -32.946
+margin_right = 138.187
+margin_bottom = 44.054
 custom_fonts/font = SubResource( 2 )
 text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -110,3 +122,12 @@ texture = ExtResource( 11 )
 
 [node name="Sprite5" type="Sprite" parent="Stars"]
 texture = ExtResource( 11 )
+
+[node name="UfoVideoPlayer" parent="." instance=ExtResource( 8 )]
+show_behind_parent = true
+margin_left = -430.0
+margin_top = -17.0
+margin_right = -250.0
+margin_bottom = 252.0
+rect_rotation = 16.4
+video_files1 = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
