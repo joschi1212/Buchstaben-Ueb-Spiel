@@ -69,19 +69,23 @@ position = Vector2( -540, -300 )
 
 [node name="Speech" parent="." instance=ExtResource( 2 )]
 pause_mode = 2
+sound = true
 
 [node name="Sounds" parent="." instance=ExtResource( 2 )]
 pause_mode = 2
 volume_db = -7.354
 audio_files1 = [ ExtResource( 4 ), ExtResource( 5 ) ]
+sound = true
 
 [node name="Laser" parent="." instance=ExtResource( 2 )]
 audio_files1 = [ ExtResource( 6 ) ]
+sound = true
 
 [node name="Music" parent="." instance=ExtResource( 2 )]
 pause_mode = 2
 volume_db = -8.0
 audio_files1 = [ ExtResource( 16 ) ]
+music = true
 
 [node name="SpritePoints" type="Sprite" parent="."]
 pause_mode = 2
@@ -131,3 +135,43 @@ margin_right = -250.0
 margin_bottom = 252.0
 rect_rotation = 16.4
 video_files1 = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+
+[node name="MusicSlider" type="HSlider" parent="."]
+margin_left = 380.0
+margin_top = 255.0
+margin_right = 530.0
+margin_bottom = 285.0
+min_value = -30.0
+max_value = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MusicSlider"]
+margin_top = -5.0
+margin_right = 40.0
+margin_bottom = 9.0
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundSlider" type="HSlider" parent="."]
+margin_left = 380.0
+margin_top = 220.0
+margin_right = 530.0
+margin_bottom = 250.0
+min_value = -30.0
+max_value = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SoundSlider"]
+margin_top = -5.0
+margin_right = 40.0
+margin_bottom = 9.0
+text = "Sound"
+__meta__ = {
+"_edit_use_anchors_": false
+}

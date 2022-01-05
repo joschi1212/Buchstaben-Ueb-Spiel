@@ -4,12 +4,21 @@ export(Array, AudioStream) var audio_files1: Array
 export(Array, AudioStream) var audio_files2: Array
 export(Array, AudioStream) var audio_files3: Array
 
-export var interrupting: bool
+export var interrupting : bool
+export var music : bool
+export var sound : bool
 
+var music_slider : HSlider
+var sound_slider : HSlider
 
 func _ready():
 	randomize()
-	pass
+	music_slider = get_node("../MusicSlider")
+	sound_slider = get_node("../SoundSlider")
+	if(music):
+		music_slider.connect("value_changed", self, "_on_music_slider_changed")
+	if(sound):
+		sound_slider.connect("value_changed", self, "_on_sound_slider_changed")
 
 func play_specific(i) ->void:
 	# stop()
@@ -37,7 +46,10 @@ func play_random(par) -> void:
 			stop()
 			stream = audio_files[random_index]
 			play()
-		
-		
-		
+
+func _on_music_slider_changed(value : float):
+	volume_db = value
+
+func _on_sound_slider_changed(value : float):
+	volume_db = value
 
