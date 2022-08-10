@@ -13,8 +13,8 @@ var sound_slider : HSlider
 
 func _ready():
 	randomize()
-	music_slider = get_node("../MusicSlider")
-	sound_slider = get_node("../SoundSlider")
+	music_slider = get_parent().find_node("MusicSlider")
+	sound_slider = get_parent().find_node("SoundSlider")
 	if(music):
 		music_slider.connect("value_changed", self, "_on_music_slider_changed")
 	if(sound):
@@ -23,10 +23,18 @@ func _ready():
 func play_specific(i) ->void:
 	# stop()
 	stream = audio_files1[i]
+	if(volume_db <= -29.99):
+		stop()
+		return
 	play()
 
 func play_random(par) -> void:
 	var audio_files: Array
+	
+	if(volume_db <= -29.99):
+		stop()
+		return
+	
 	if(par > 1000):
 		audio_files = audio_files2
 	else:
@@ -49,7 +57,12 @@ func play_random(par) -> void:
 
 func _on_music_slider_changed(value : float):
 	volume_db = value
+	if(volume_db <= -29.99):
+		stop()
+		return
 
 func _on_sound_slider_changed(value : float):
 	volume_db = value
-
+	if(volume_db <= -29.99):
+		stop()
+		return

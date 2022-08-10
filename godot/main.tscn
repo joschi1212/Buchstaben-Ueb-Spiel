@@ -40,14 +40,11 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="."]
 pause_mode = 2
-margin_left = -529.339
-margin_top = 275.199
-margin_right = -428.339
-margin_bottom = 295.199
+margin_left = -529.0
+margin_top = 247.0
+margin_right = -385.0
+margin_bottom = 295.0
 text = "Spawn Letters"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 11.505, 276.842 )
@@ -101,9 +98,6 @@ margin_bottom = 44.054
 custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Stars" type="Node2D" parent="."]
 position = Vector2( 487.719, 112.68 )
@@ -136,42 +130,32 @@ margin_bottom = 252.0
 rect_rotation = 16.4
 video_files1 = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
 
-[node name="MusicSlider" type="HSlider" parent="."]
-margin_left = 380.0
-margin_top = 255.0
-margin_right = 530.0
-margin_bottom = 285.0
-min_value = -30.0
-max_value = 30.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="MusicSlider"]
-margin_top = -5.0
-margin_right = 40.0
-margin_bottom = 9.0
+[node name="MusicLabel" type="Label" parent="."]
+margin_left = 305.0
+margin_top = 250.0
+margin_right = 345.0
+margin_bottom = 264.0
 text = "Music"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="SoundSlider" type="HSlider" parent="."]
-margin_left = 380.0
-margin_top = 220.0
-margin_right = 530.0
-margin_bottom = 250.0
+[node name="MusicSlider" type="HSlider" parent="MusicLabel"]
+margin_top = 5.0
+margin_right = 150.0
+margin_bottom = 22.0
+rect_scale = Vector2( 1.5, 2.5 )
 min_value = -30.0
 max_value = 30.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label" type="Label" parent="SoundSlider"]
-margin_top = -5.0
-margin_right = 40.0
-margin_bottom = 9.0
+[node name="SoiundLabel" type="Label" parent="."]
+margin_left = 305.0
+margin_top = 196.0
+margin_right = 345.0
+margin_bottom = 210.0
 text = "Sound"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="SoundSlider" type="HSlider" parent="SoiundLabel"]
+margin_top = 5.0
+margin_right = 150.0
+margin_bottom = 21.0
+rect_scale = Vector2( 1.5, 2.5 )
+min_value = -30.0
+max_value = 30.0
